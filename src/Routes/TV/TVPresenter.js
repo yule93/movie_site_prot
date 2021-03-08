@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const HomePresenter = ({ nowPlaying, popular, upcoming, loading, error }) => null;
+const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => null;
 
-HomePresenter.PropTypes = {
-    nowPlaying: PropTypes.array,
+TVPresenter.PropTypes = {
+    topRated: PropTypes.array,
     popular: PropTypes.array,
-    upcoming: PropTypes.array,
+    airingToday: PropTypes.array,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string
 };
 
-export default HomePresenter;
+export default TVPresenter;

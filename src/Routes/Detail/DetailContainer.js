@@ -38,7 +38,6 @@ export default class extends React.Component {
         const request = await tvApi.showDetail(parsedId);
         result = request.data;
       }
-      console.log(result);
     } catch {
       this.setState({ error: "Can't find anyting." });
     } finally {
@@ -47,7 +46,13 @@ export default class extends React.Component {
   }
 
   render() {
-    const { result, error, loading } = this.state;
-    return <DetailPresenter result={result} error={error} loading={loading} />;
+    const { nowPlaying, upcoming, result, error, loading } = this.state;
+    return (
+      <DetailPresenter
+        nowPlaying = {nowPlaying}
+        upcoming = {upcoming}
+        result={result}
+        error={error}
+        loading={loading} />);
   }
 }
