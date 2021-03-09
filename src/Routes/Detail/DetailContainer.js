@@ -12,47 +12,38 @@ export default class extends React.Component {
       result: null,
       error: null,
       loading: true,
-      isMovie: pathname.includes("/movie")
+      isMovie: pathname.includes("/movie/")
     };
   }
 
   async componentDidMount() {
     const {
       match: {
-        params: {id}
+        params: { id }
       },
-      history: {push}
+      history: { push }
     } = this.props;
-    const parsedId = Number(id);
     const { isMovie } = this.state;
-    console.log(id);
-    if(isNaN(parsedId)) {
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId)) {
       return push("/");
     }
     let result = null;
     try {
-      if(isMovie) {
-        const request = await moviesApi.movieDetail(parsedId);
-        result = request.data;
+      if (isMovie) {
+        ({ data: result } = await moviesApi.movieDetail(parsedId));
       } else {
-        const request = await tvApi.showDetail(parsedId);
-        result = request.data;
+        ({ data: result } = await tvApi.showDetail(parsedId));
       }
     } catch {
-      this.setState({ error: "Can't find anyting." });
+      this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState( { loading: false, result } );
+      this.setState({ loading: false, result });
     }
   }
 
   render() {
-    const { nowPlaying, upcoming, result, error, loading } = this.state;
-    return (
-      <DetailPresenter
-        nowPlaying = {nowPlaying}
-        upcoming = {upcoming}
-        result={result}
-        error={error}
-        loading={loading} />);
+    const { result, error, loading } = this.state;
+    return <DetailPresenter result={result} error={error} loading={loading} />;
   }
 }

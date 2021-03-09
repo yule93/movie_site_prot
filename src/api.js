@@ -1,12 +1,15 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.themoviedb.org/3/",
+  baseURL: 'https://api.themoviedb.org/3/',
+  timeout: 1000,
   params: {
     api_key: "b1fcfa4a4af0cf05a6247edfa24516ea",
     language: "en-US"
   }
 });
+
+export default api;   // 테스트 용으로 추가한 줄이에요!
 
 export const moviesApi = {
   nowPlaying: () => api.get("movie/now_playing"),
@@ -21,7 +24,7 @@ export const moviesApi = {
   search: term =>
     api.get("search/movie", {
       params: {
-        query: encodeURIComponent(term)
+        query: term
       }
     })
 };
@@ -39,7 +42,7 @@ export const tvApi = {
   search: term =>
     api.get("search/tv", {
       params: {
-        query: encodeURIComponent(term)
+        query: term
       }
     })
 };

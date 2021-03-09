@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => null;
+const Container = styled.div``;
+
+const TVPresenter = ({ topRated, popular, airingToday, loading, error }) => loading ? null : <Container></Container>;
 
 TVPresenter.PropTypes = {
     topRated: PropTypes.array,
