@@ -1,3 +1,6 @@
+
+- Deploy Link: https://yule93.github.io/nomflix(https://yule93.github.io/nomflix)
+
 # Nomflix
 
 ## Screens
