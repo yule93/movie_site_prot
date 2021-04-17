@@ -34,6 +34,7 @@ Section.propTypes = {
         propTypes.node
     ])
     */
+   // oneOfTypes가 없다는 오류가 발생하는데 왜인지 모르겠음.
 }
 
 export default Section;
