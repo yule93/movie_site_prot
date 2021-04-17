@@ -13,6 +13,9 @@ const Title = styled.span`
 `;
 const Grid = styled.div`
     margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 125px);
+    grid-gap: 20px;
 `;
 
 const Section = ({ title, children }) => (
@@ -23,11 +26,14 @@ const Section = ({ title, children }) => (
 );
 
 Section.propTypes = {
-    title: propTypes.string.isRequired,
+    title: propTypes.string.isRequired
+    /*
+    ,
     children: React.propTypes.oneOfTypes([
         propTypes.arrayOf(propTypes.node),
         propTypes.node
     ])
+    */
 }
 
 export default Section;

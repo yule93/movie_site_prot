@@ -9,7 +9,7 @@ const api = axios.create({
   }
 });
 
-export default api;   // 테스트 용으로 추가한 줄이에요!
+export default api;
 
 export const moviesApi = {
   nowPlaying: () => api.get("movie/now_playing"),
