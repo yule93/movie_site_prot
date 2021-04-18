@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "21bc73499796242c5778",
-    "url": "/nomflix/static/js/main.21bc7349.chunk.js"
+    "revision": "bd246a7cd7e712c2902d",
+    "url": "/nomflix/static/js/main.bd246a7c.chunk.js"
   },
   {
     "revision": "fce6ea2e64ef27e19dbd",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/nomflix/static/js/runtime~main.621cdbff.js"
   },
   {
-    "revision": "efbc5ac80fa0931e65692a57f533c5e7",
+    "revision": "1a9292065a54839f1f3e2dfe27eb678e",
     "url": "/nomflix/index.html"
   }
 ];
