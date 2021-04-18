@@ -11,12 +11,21 @@ export default class extends React.Component {
     searchTerm: ""
   };
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     const { searchTerm} = this.state;
     if(searchTerm !== "") {
-      this.searchByTrem(searchTerm);
+      this.searchByTerm(searchTerm);
     }
   };
+
+  updateTerm = (event) => {
+    //console.log(searchTerm);
+    const { target: { value } } = event;    // target 내의 value를 가져온다.
+    this.setState({
+      searchTerm: value
+    });
+  }
 
   searchByTerm = async() => {
     const { searchTerm } = this.state;
@@ -49,6 +58,7 @@ export default class extends React.Component {
         error={error}
         searchTerm={searchTerm}
         handleSubmit = {this.handleSubmit}
+        updateTerm = {this.updateTerm}
       />
     );
   }
