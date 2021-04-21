@@ -17,10 +17,11 @@ const Image = styled.div`
 `;
 
 const Rating = styled.span`
-    bottom: 5px;
-    right: 5px;
     postion: absolute;
+    text-align: center;
+    bottom: 50px;
     opacity: 0;
+    font-size: 14px;
 `;
 
 const Title = styled.span`
@@ -50,13 +51,14 @@ const Poster = ({id, imageUrl, title, rating, year, isMovie = false}) => (
     <Link to = {isMovie ? `/movie/${id}` : `/show/${id}`}>
         <Container>
             <ImageContainer>
-                <Image bgUrl = {imageUrl ? `https://image.tmdb.org/t/p/w300${imageUrl}` : require("../assets/NoImage.png").default} />
+                <Image bgUrl = {imageUrl ? `https://image.tmdb.org/t/p/w300${imageUrl}` : require("../assets/NoImage.png").default}>
+                </Image>
                 <Rating>
                     <span role = "img" aria-label="rating">
                         ⭐
                     </span>
                     {rating}/10
-                </Rating>
+            </Rating>
             </ImageContainer>
             <Title>
                 <span>

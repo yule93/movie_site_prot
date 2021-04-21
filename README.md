@@ -5,15 +5,15 @@
 
 ## Screens
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
-- [ ] Detail
+- [x] Home
+- [x] TV Shows
+- [x] Search
+- [x] Detail
 
 ## API Verbs
 
-- [ ] Now playing: 현재 방영중
-- [ ] Top Rated (TV, Movie): 별점 높은 순
-- [ ] Popular (TV, Movie): 인기순위
-- [ ] Upcoming (Moive): 예정작
-- [ ] Airing Today (TV): 현재 방영분
+- [x] Now playing: 현재 방영중
+- [x] Top Rated (TV, Movie): 별점 높은 순
+- [x] Popular (TV, Movie): 인기순위
+- [x] Upcoming (Moive): 예정작
+- [x] Airing Today (TV): 현재 방영분
