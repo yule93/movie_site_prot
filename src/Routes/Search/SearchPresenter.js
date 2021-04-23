@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 import Section from "Components/Section";
 import Message from "../../Components/Message";
 import Poster from "../../Components/Poster";
 
 const Container = styled.div`
-    padding: 0px 20px;
+    padding: 20px;
 `;
 
 const Form = styled.form`
@@ -24,51 +25,56 @@ const Input = styled.input`
 
 const SearchPresenter = ({
     movieResults, tvResults, loading, searchTerm, handleSubmit, error, updateTerm
-}) => <Container>
-    <Form onSubmit = {handleSubmit}>
-        <Input placeholder = "Search Movies or TV Shows..." value = {searchTerm} onChange = {updateTerm}/>
-    </Form>
-    { loading ? (
-        <Loader/>
-    ) : (
-        <>
-            {movieResults && movieResults.length > 0 && (
-                <Section title = "Movie Results">
-                    {movieResults.map(movie => (
-                        <Poster
-                            key={movie.id}
-                            id = {movie.id}
-                            imageUrl = {movie.poster_path}
-                            title = {movie.original_title}
-                            rating = {movie.vote_average}
-                            isMovie={true}
-                            year = {movie.release_date && movie.release_date.split("-", 1)}
-                        />
-                    ))}
-                </Section>
-            )}
-            {tvResults && tvResults.length > 0 && (
-                <Section title = "TV Show Results">
-                    {tvResults.map(show => (
-                        <Poster
-                            key={show.id}
-                            id = {show.id}
-                            imageUrl = {show.poster_path}
-                            title = {show.original_name}
-                            rating = {show.vote_average}
-                            isMovie={true}
-                            year = {show.first_air_date && show.first_air_date.split("-", 1)}
-                        />
-                    ))}
-                </Section>
-            )}
-            {error && <Message color = "#e74c3c" text = {error} />}
-            {tvResults && movieResults && tvResults.length === 0 && (
-                <Message text = {`Nothing found for: ${searchTerm}`} color = "#95a5a6"/>
-            )}
-        </>
-    )}
-</Container>;
+}) => (
+    <Container>
+        <Helmet>
+            <title>Search | Movie WebApp</title>
+        </Helmet>
+        <Form onSubmit = {handleSubmit}>
+            <Input placeholder = "Search Movies or TV Shows..." value = {searchTerm} onChange = {updateTerm}/>
+        </Form>
+        { loading ? (
+            <Loader/>
+        ) : (
+            <>
+                {movieResults && movieResults.length > 0 && (
+                    <Section title = "Movie Results">
+                        {movieResults.map(movie => (
+                            <Poster
+                                key={movie.id}
+                                id = {movie.id}
+                                imageUrl = {movie.poster_path}
+                                title = {movie.original_title}
+                                rating = {movie.vote_average}
+                                isMovie={true}
+                                year = {movie.release_date && movie.release_date.split("-", 1)}
+                            />
+                        ))}
+                    </Section>
+                )}
+                {tvResults && tvResults.length > 0 && (
+                    <Section title = "TV Show Results">
+                        {tvResults.map(show => (
+                            <Poster
+                                key={show.id}
+                                id = {show.id}
+                                imageUrl = {show.poster_path}
+                                title = {show.original_name}
+                                rating = {show.vote_average}
+                                isMovie={true}
+                                year = {show.first_air_date && show.first_air_date.split("-", 1)}
+                            />
+                        ))}
+                    </Section>
+                )}
+                {error && <Message color = "#e74c3c" text = {error} />}
+                {tvResults && movieResults && tvResults.length === 0 && (
+                    <Message text = {`Nothing found for: ${searchTerm}`} color = "#95a5a6"/>
+                )}
+            </>
+        )}
+    </Container>
+);
 
 SearchPresenter.propTypes = {
     movieResults: PropTypes.array,

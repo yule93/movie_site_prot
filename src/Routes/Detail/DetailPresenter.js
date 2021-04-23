@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
 
 const Container = styled.div`
@@ -70,50 +71,65 @@ const Overview = styled.p`
     width: 50%;
 `;
 
+const Collection = styled.div``;
+
 const DetailPresenter = ({ result, loading, error }) =>
-    loading ? (<Loader />) : (
+    loading ? (
+      <>
+        <Helmet>
+          <title>Loading | Movie WebApp</title>
+        </Helmet>
+        <Loader />
+      </>
+    ) : (
         <Container>
-        <Backdrop
-          bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
-        />
-        <Content>
-          <Cover
-            bgImage={
-              result.poster_path
-                ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-                : require("../../assets/NoImage.png")
-            }
+          <Helmet>
+            <title>
+              {result.original_title ? result.original_title : result.original_name}{" "}
+              | Movie WebApp
+            </title>
+          </Helmet>
+          <Backdrop
+            bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
           />
-          <Data>
-            <Title>
-              {result.original_title
-                ? result.original_title
-                : result.original_name}
-            </Title>
-            <DescriptionContainer>
-              <Description>
-                {result.release_date
-                  ? result.release_date.split("-", 1)
-                  : result.first_air_date.split("-", 1)}
-              </Description>
-              <Divider>•</Divider>
-              <Description>
-                {result.runtime ? result.runtime : result.episode_run_time[0]} min
-              </Description>
-              <Divider>•</Divider>
-              <Description>
-                {result.genres &&
-                  result.genres.map((genre, index) =>
-                    index === result.genres.length - 1
-                      ? genre.name
-                      : `${genre.name} / `
+          <Content>
+            <Cover
+              bgImage={
+                result.poster_path
+                  ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+                  : require("../../assets/NoImage.png")
+              }
+            />
+            <Data>
+              <Title>
+                {result.original_title
+                  ? result.original_title
+                  : result.original_name}
+              </Title>
+              <DescriptionContainer>
+                <Description>
+                  {result.release_date
+                    ? result.release_date.split("-", 1)
+                    : result.first_air_date.split("-", 1)}
+                </Description>
+                <Divider>•</Divider>
+                <Description>
+                  {result.runtime ? result.runtime : result.episode_run_time[0]} min
+                </Description>
+                <Divider>•</Divider>
+                <Description>
+                  {result.genres &&
+                    result.genres.map((genre, index) =>
+                      index === result.genres.length - 1
+                        ? genre.name
+                        : `${genre.name} / `
                   )}
-              </Description>
-            </DescriptionContainer>
-            <Overview>{result.overview}</Overview>
-          </Data>
-        </Content>
-      </Container>
+                </Description>
+              </DescriptionContainer>
+              <Overview>{result.overview}</Overview>
+            </Data>
+          </Content>
+        </Container>
 );
 
 DetailPresenter.propTypes = {
