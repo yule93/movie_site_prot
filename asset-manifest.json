@@ -1,11 +1,11 @@
 {
-  "main.js": "/nomflix/static/js/main.4d3fd4cf.chunk.js",
-  "main.js.map": "/nomflix/static/js/main.4d3fd4cf.chunk.js.map",
-  "static/js/1.59789cbf.chunk.js": "/nomflix/static/js/1.59789cbf.chunk.js",
-  "static/js/1.59789cbf.chunk.js.map": "/nomflix/static/js/1.59789cbf.chunk.js.map",
-  "runtime~main.js": "/nomflix/static/js/runtime~main.621cdbff.js",
-  "runtime~main.js.map": "/nomflix/static/js/runtime~main.621cdbff.js.map",
-  "index.html": "/nomflix/index.html",
-  "precache-manifest.3de409da3ffb9e90b9316a1628b5b8b4.js": "/nomflix/precache-manifest.3de409da3ffb9e90b9316a1628b5b8b4.js",
-  "service-worker.js": "/nomflix/service-worker.js"
+  "main.js": "/movie_site_prot/static/js/main.4d3fd4cf.chunk.js",
+  "main.js.map": "/movie_site_prot/static/js/main.4d3fd4cf.chunk.js.map",
+  "static/js/1.f519392f.chunk.js": "/movie_site_prot/static/js/1.f519392f.chunk.js",
+  "static/js/1.f519392f.chunk.js.map": "/movie_site_prot/static/js/1.f519392f.chunk.js.map",
+  "runtime~main.js": "/movie_site_prot/static/js/runtime~main.6d101fcc.js",
+  "runtime~main.js.map": "/movie_site_prot/static/js/runtime~main.6d101fcc.js.map",
+  "index.html": "/movie_site_prot/index.html",
+  "precache-manifest.51e1737061f831fe364676cb44db3f86.js": "/movie_site_prot/precache-manifest.51e1737061f831fe364676cb44db3f86.js",
+  "service-worker.js": "/movie_site_prot/service-worker.js"
 }
